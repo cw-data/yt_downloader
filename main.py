@@ -1,4 +1,15 @@
-some_test_text = "this is text"
-print(some_test_text)
+from pytube import YouTube
 
-test_text_holder = ["text1", "text2"]
+# youtube video downloader based on https://www.youtube.com/watch?v=EMlM6QTzJo0&ab_channel=TiffInTech
+
+def Download(link):
+    try:
+        youtubeObject = YouTube(link)
+        youtubeObject = youtubeObject.streams.get_highest_resolution()
+        youtubeObject.download()
+    except:
+        print("There has been an error in downloading your youtube video")
+    print("This download has completed!")
+
+link = input("Please put your youtube link here! URL: ")
+Download(link)
