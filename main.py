@@ -6,7 +6,7 @@ def Download(link):
     try:
         youtubeObject = YouTube(link)
         youtubeObject = youtubeObject.streams.get_highest_resolution()
-        youtubeObject.download()
+        youtubeObject.download(output_path="20221226/")
     except:
         print("There has been an error in downloading your youtube video")
     print("This download has completed!")
